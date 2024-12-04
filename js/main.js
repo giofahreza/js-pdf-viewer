@@ -1,4 +1,26 @@
-const url = '../docs/pdf.pdf';
+const url = '../pdf.php';
+
+fetch(url, {
+  headers: {
+    'X-Requested-With': 'JavaScript-PDF-Viewer',
+    'Authorization': 'your-custom-token'
+  }
+})
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Failed to load PDF');
+    }
+    return response.blob();
+  })
+  .then(blob => {
+    const pdfUrl = URL.createObjectURL(blob);
+    pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
+      console.log('PDF loaded', pdf);
+    });
+  })
+  .catch(error => {
+    console.error('Error loading PDF:', error);
+  });
 
 let pdfDoc = null,
   pageNum = 1,
