@@ -3,7 +3,17 @@
   padding: 0;
 }
 
+body {
+  text-align: center;
+}
+
+#pdf-render {
+  max-width: 100%;
+}
+
 .top-bar {
+  position: sticky;
+  top: 0;
   background: #333;
   color: #fff;
   padding: 1rem;
