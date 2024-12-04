@@ -9,6 +9,8 @@ const scale = 1.5,
   canvas = document.querySelector('#pdf-render'),
   ctx = canvas.getContext('2d');
 
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
 // Render the page
 const renderPage = num => {
   pageIsRendering = true;
